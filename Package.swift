@@ -1,24 +1,19 @@
-// swift-tools-version: 6.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
-    name: "NeoBeaconsSDK",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "NeoBeaconsSDK",
-            targets: ["NeoBeaconsSDK"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "NeoBeaconsSDK"),
-        .testTarget(
-            name: "NeoBeaconsSDKTests",
-            dependencies: ["NeoBeaconsSDK"]
-        ),
-    ]
+	name: "neobeacons-sdk",
+	platforms: [
+		.iOS(.v14) // or your min iOS version
+	],
+	products: [
+		.library(name: "neobeacons-sdk", targets: ["neobeacons-sdk"])
+	],
+	targets: [
+		.binaryTarget(
+			name: "neobeacons-sdk",
+			url: "https://github.com/localparty/neobeacons-sdk/releases/download/0.0.1/neobeacons-sdk.xcframework.zip",
+			checksum: "884a5868c4576e7599afe304a0c3eda1d0f43f55e1205c5146575028f35fdf73"
+		)
+	]
 )
